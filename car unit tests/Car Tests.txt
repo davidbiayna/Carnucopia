@@ -1,0 +1,534 @@
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --path "C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia\Car_test.py" 
+Testing started at 14:25 ...
+Launching pytest with arguments C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia\Car_test.py --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_init_method 
+
+============================== 1 failed in 0.16s ==============================
+FAILED                   [100%]Invalid SIPP Code, setting back to default.
+
+Car_test.py:5 (MyTestCase.test_valid_init_method)
+None != 'SUV'
+
+Expected :'SUV'
+Actual   :None
+<Click to see difference>
+
+self = <Car_test.MyTestCase testMethod=test_valid_init_method>
+
+    def test_valid_init_method(self):
+        # Arrange
+        # Act
+        first_car = Car(
+            car_id=1,
+            registration_plate="BD61 SLU",
+            manufacturer="HONDA",
+            model_type="CR-V",
+            sipp="SUV",
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+    
+        # Assertion
+        self.assertEqual(1, first_car.car_id)
+        self.assertEqual("BD61 SLU", first_car.registration_plate)
+        self.assertEqual("HONDA", first_car.manufacturer)
+        self.assertEqual("CR-V", first_car.model_type)
+>       self.assertEqual("SUV", first_car.sipp)
+
+Car_test.py:28: AssertionError
+
+Process finished with exit code 1
+
+
+
+-----------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --path "C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia\Car_test.py" 
+Testing started at 14:48 ...
+Launching pytest with arguments C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia\Car_test.py --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_init_method PASSED                   [100%]Invalid SIPP Code, setting back to default.
+
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+
+------------------------------------------------------------------------------------------------
+
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_eq_method 
+Testing started at 15:42 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_eq_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_eq_method 
+
+============================== 1 failed in 0.14s ==============================
+FAILED                     [100%]Invalid SIPP Code, setting back to default.
+
+Car_test.py:35 (MyTestCase.test_valid_eq_method)
+self = <Car_test.MyTestCase testMethod=test_valid_eq_method>
+
+    def test_valid_eq_method(self):
+        # Arrange
+        first_car = Car(
+            car_id=1,
+            registration_plate="BD61 SLU",
+            manufacturer="HONDA",
+            model_type="CR-V",
+            sipp="SUV",
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+        # Act
+        # assertion
+        self.assertTrue(first_car == first_car)
+    
+        second_car = Car(
+            car_id=2,
+            registration_plate="CA51 MBE",
+            manufacturer="CHEVROLET",
+            model_type="CORVETTE",
+            sipp="JTAV",
+            seat_capacity=2,
+            width=1877,
+            length=1234,
+            maximum_speed=194.0,
+            mpg=24.0,
+            on_hire=True
+        )
+    
+        self.assertFalse(first_car == second_car)
+>       self.assertTrue(first_car == second_car)
+E       AssertionError: False is not true
+
+Car_test.py:70: AssertionError
+
+Process finished with exit code 1
+
+
+-------------------------------------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_eq_method 
+Testing started at 15:49 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_eq_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_eq_method PASSED                     [100%]Invalid SIPP Code, setting back to default.
+
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+--------------------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_registration_plate_method 
+Testing started at 13:48 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_registration_plate_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_registration_plate_method 
+
+============================== 1 failed in 0.15s ==============================
+FAILED     [100%]
+Car_test.py:70 (MyTestCase.test_valid_registration_plate_method)
+self = <Car_test.MyTestCase testMethod=test_valid_registration_plate_method>
+
+    def test_valid_registration_plate_method(self):
+        # Arrange
+        valid_registration_plate = "BD61 SLU"
+        # Act
+>       car = Car(
+            car_id=1,
+            manufacturer="HONDA",
+            model_type="CR-V",
+            sipp="SUV",
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+E       TypeError: Car.__init__() missing 1 required positional argument: 'registration_plate'
+
+Car_test.py:75: TypeError
+
+Process finished with exit code 1
+
+
+
+-----------------------------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_registration_plate_method 
+Testing started at 14:09 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_registration_plate_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_registration_plate_method PASSED     [100%]Invalid SIPP Code, setting back to default.
+
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+
+
+---------------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_registration_plate_method 
+Testing started at 14:19 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_registration_plate_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_registration_plate_method PASSED     [100%]
+
+============================== 1 passed in 0.02s ==============================
+
+Process finished with exit code 0
+
+
+----------------------------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_invalid_registration_plate_method 
+Testing started at 14:31 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_invalid_registration_plate_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_invalid_registration_plate_method 
+
+============================== 1 failed in 0.15s ==============================
+FAILED   [100%]
+Car_test.py:90 (MyTestCase.test_invalid_registration_plate_method)
+self = <Car_test.MyTestCase testMethod=test_invalid_registration_plate_method>
+
+    def test_invalid_registration_plate_method(self):
+        # Arrange
+        invalid_registration_plate = "Invalid Plate"
+        # Act
+>       car = Car(
+            car_id=1,
+            registration_plate=invalid_registration_plate,
+            manufacturer="HONDA",
+            model_type="CR-V",
+            sipp="SFDR",
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+
+Car_test.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+Car.py:21: in __init__
+    self.registration_plate = registration_plate
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Car.Car object at 0x0000020C83D6F310>, value = 'Invalid Plate'
+
+    @registration_plate.setter
+    def registration_plate(self, value):
+        registration_plate_format = (r"(^[A-Z]{2}[0-9]{2}\s?[A-Z]{3}$)|(^[A-Z][0-9]{1,3}[A-Z]{3}$)|(^[A-Z]{3}[0-9]{1,"
+                                     r"3}[A-Z]$)|(^[0-9]{1,4}[A-Z]{1,2}$)|(^[0-9]{1,3}[A-Z]{1,3}$)|(^[A-Z]{1,2}[0-9]{1,"
+                                     r"4}$)|(^[A-Z]{1,3}[0-9]{1,3}$)|(^[A-Z]{1,3}[0-9]{1,4}$)|(^[0-9]{3}[DX]{1}[0-9]{"
+                                     r"3}$)")
+    
+        if re.match(registration_plate_format, value):
+            self._registration_plate = value
+        else:
+>           raise ValueError("Invalid UK registration plate format")
+E           ValueError: Invalid UK registration plate format
+
+Car.py:58: ValueError
+
+Process finished with exit code 1
+
+
+----------------------------------------------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_invalid_registration_plate_method 
+Testing started at 15:17 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_invalid_registration_plate_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_invalid_registration_plate_method PASSED   [100%]Invalid UK registration plate format
+
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+
+
+-----------------------------------------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_sipp_method 
+Testing started at 15:30 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_sipp_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_sipp_method PASSED                   [100%]
+
+============================== 1 passed in 0.02s ==============================
+
+Process finished with exit code 0
+
+
+----------------------------------------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_invalid_sipp_method 
+Testing started at 15:33 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_invalid_sipp_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_invalid_sipp_method 
+
+============================== 1 failed in 0.15s ==============================
+FAILED                 [100%]Invalid SIPP Code Invalid SIPP, setting back to default.
+
+Car_test.py:128 (MyTestCase.test_invalid_sipp_method)
+'Invalid SIPP' != 'DEFAULT'
+
+Expected :'DEFAULT'
+Actual   :'Invalid SIPP'
+<Click to see difference>
+
+self = <Car_test.MyTestCase testMethod=test_invalid_sipp_method>
+
+    def test_invalid_sipp_method(self):
+        # Arrange
+        invalid_sipp = "Invalid SIPP"
+        # Act
+        car = Car(
+            car_id=1,
+            registration_plate="BD61 SLU",
+            manufacturer="HONDA",
+            model_type="CR-V",
+            sipp=invalid_sipp,
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+>       self.assertEqual(car.sipp, invalid_sipp)
+
+Car_test.py:146: AssertionError
+
+Process finished with exit code 1
+
+
+------------------------------------------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_invalid_sipp_method 
+Testing started at 15:35 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_invalid_sipp_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_invalid_sipp_method PASSED                 [100%]Invalid SIPP Code Invalid SIPP, setting back to default.
+
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+
+------------------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_seat_capacity 
+Testing started at 15:44 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_seat_capacity --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_seat_capacity PASSED                 [100%]
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+
+--------------------------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_invalid_seat_capacity 
+Testing started at 16:48 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_invalid_seat_capacity --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_invalid_seat_capacity 
+
+============================== 1 failed in 0.17s ==============================
+FAILED               [100%]Seat capacity out of range (1-9), setting back to default
+
+Car_test.py:166 (MyTestCase.test_invalid_seat_capacity)
+10 != None
+
+Expected :None
+Actual   :10
+<Click to see difference>
+
+self = <Car_test.MyTestCase testMethod=test_invalid_seat_capacity>
+
+    def test_invalid_seat_capacity(self):
+        # Arrange
+        invalid_seat_capacity = 10
+        # Act
+        car = Car(
+            car_id=1,
+            registration_plate="BD61 SLU",
+            manufacturer="HONDA",
+            model_type="CR-V",
+            sipp="SFDR",
+            seat_capacity=invalid_seat_capacity,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+>       self.assertEqual(car.seat_capacity, invalid_seat_capacity)
+
+Car_test.py:184: AssertionError
+
+Process finished with exit code 1
+
+
+---------------------------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_invalid_seat_capacity 
+Testing started at 16:51 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_invalid_seat_capacity --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_invalid_seat_capacity PASSED               [100%]Seat capacity out of range (1-9), setting back to default
+
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+
+--------------------------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_width 
+Testing started at 18:32 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_width --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_width PASSED                         [100%]
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+-------------------------------------------------------
+
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_invalid_width 
+Testing started at 18:41 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_invalid_width --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_invalid_width PASSED                       [100%]Width out of range
+
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+
+
+------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_valid_length 
+Testing started at 18:49 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_valid_length --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_valid_length PASSED                        [100%]
+
+============================== 1 passed in 0.02s ==============================
+
+Process finished with exit code 0
+
+
+-----------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target Car_test.py::MyTestCase.test_invalid_length 
+Testing started at 18:50 ...
+Launching pytest with arguments Car_test.py::MyTestCase::test_invalid_length --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+Car_test.py::MyTestCase::test_invalid_length PASSED                      [100%]Length out of range
+
+
+============================== 1 passed in 0.02s ==============================
+
+Process finished with exit code 0
+
+
+
+
