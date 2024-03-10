@@ -13,11 +13,11 @@ class Program:
 
         while not ui.exit_flag:
             ui.sanitize_data()
-            ui.set_cars_data_state()
+            car_registry.set_cars_data()
             ui.display_pretty_table()
             ui.display_menu()
             ui.process_options()
-            ui.save_registry_to_file()
+            car_registry.save_registry_to_file(car_registry._cars)
 
             if ui.exit_flag or ui.confirm_exit():
                 print('See you soon')

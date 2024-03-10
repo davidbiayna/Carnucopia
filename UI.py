@@ -6,23 +6,14 @@ from tabulate import tabulate
 
 
 class UI:
+
     def __init__(self, car_registry):
         self.car_registry = car_registry
         self.exit_flag = False
-        self.headers = self.display_header()
-        self.rows = self.display_items()
-
-    def save_registry_to_file(self):
-        with open("C:\\Temp\\CarRegistry.dat", "w") as file:
-            writer = csv.writer(file)
-            for car in self.car_registry.get_cars():
-                car_data = [car.car_id, car.registration_plate, car.manufacturer, car.model_type, car.sipp,
-                            car.seat_capacity, car.width, car.length, car.maximum_speed, car.mpg, car.on_hire]
-                writer.writerow(car_data)
-
+        # self.headers = self.display_header()
+        # self.rows = self.display_items()
     def sanitize_data(self):
-        self.car_registry.set_file_headers()
-        self.car_registry.add_pos_value()
+        self.car_registry.set_file_headers_and_pos_values()
 
     def display_header(self):
         with open("C:\\Temp\\CarRegistry.dat", "r") as file:
@@ -45,11 +36,11 @@ class UI:
 
     def display_pretty_table(self):
         # Print the table using the data values from the key value pairs and the established headers
-        data = self.car_registry._cars
+        data = self.car_registry._prettyfied_cars
         # Print the table using tabulate
         print(tabulate(data.values(), headers='keys', tablefmt="plain"))
 
-    def set_cars_data_state(self):
+    # def set_cars_data_state(self):
         # Transform each row in a dictionary such as a hash - key value pairs so we can further manipulate the data
         # ex:
         # {'car_1': {'Pos': '1', 'ID': '1', 'Reg': 'BD61 SLU', 'Manufacturer': 'HONDA', 'Model': 'CR-V', 'SIPP': 'SFDR',
@@ -58,7 +49,8 @@ class UI:
         #            'SIPP': 'JTAV', 'Seat': '2', 'Width': '1877', 'Length': '1234', 'Spd': '194', 'MPG': '24',
         #            'OnHire': 'True'}
         # Set the cars data in CarRegistry
-        self.car_registry.set_cars_data(self.headers, self.rows)
+        # self.car_registry.set_cars_data(self.headers, self.rows)
+        # self.car.update_cars_attributes()
         # Print the table using the data values from the key value pairs and the established headers
         # self.data = {f'car_{i}': dict(zip(headers, row)) for i, row in enumerate(rows, start=1)}
         # print(tabulate(self.data.values(), headers="keys", tablefmt="plain"))
@@ -81,7 +73,7 @@ class UI:
             elif option == 'D':
                 self.car_registry.remove_car()
             elif option == 'H':
-                self.car_registry.hire_out_car()
+                self.car_registry.hire_out()
             elif option == 'R':
                 self.car_registry.return_car_to_garage()
             elif option == 'U':
@@ -100,11 +92,6 @@ class UI:
             response = input('Are you sure you want to leave, Y or N').upper()
 
         return response == 'Y'
-
-    def add_car(self):
-        car = self.gather_car_details()
-        self.car_registry.add_car(car)
-        self.save_registry_to_file()
 
     def hire_out_car(self):
         pos = self.gather_position_number()
