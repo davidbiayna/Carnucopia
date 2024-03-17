@@ -2,7 +2,6 @@ import re
 import pdb
 from tabulate import tabulate
 
-
 class Car:
     minimum_width = 1000
     maximum_width = 2500
@@ -25,7 +24,7 @@ class Car:
         self.manufacturer = manufacturer
         self.model_type = model_type
         self.sipp = sipp
-        self.seat_capacity = int(seat_capacity)
+        self.seat_capacity = seat_capacity
         self.width = int(width)
         self.length = int(length)
         self.maximum_speed = float(maximum_speed)
@@ -65,7 +64,7 @@ class Car:
                 raise ValueError("Invalid UK registration plate format")
         except ValueError as e:
             print(e)
-            self._registration_plate = "DEFAULT"
+            self._registration_plate = None
 
     @property
     def manufacturer(self):
@@ -80,7 +79,7 @@ class Car:
                 raise ValueError("Invalid manufacturer,setting back to default")
         except ValueError as e:
             print(e)
-            self._manufacturer = "UNKNOWN Manufacturer"
+            self._manufacturer = None
 
     @property
     def model_type(self):
@@ -101,10 +100,10 @@ class Car:
             if re.match(sipp_format, value):
                 self._sipp = value
             else:
-                raise ValueError(f"Invalid SIPP Code {value}, setting back to default.")
+                raise ValueError(f"Invalid SIPP Code {value}, please check again")
         except ValueError as e:
             print(e)
-            self._sipp = "DEFAULT"
+            self._sipp = None
 
     @property
     def seat_capacity(self):
@@ -113,10 +112,10 @@ class Car:
     @seat_capacity.setter
     def seat_capacity(self, value):
         try:
-            if 1 <= value <= 9:
+            if 1 <= int(value) <= 10:
                 self._seat_capacity = value
             else:
-                raise ValueError("Seat capacity out of range (1-9), setting back to default")
+                raise ValueError("Seat capacity out of range (1-10), setting back to default")
         except ValueError as e:
             print(e)
             self._seat_capacity = None
@@ -134,7 +133,7 @@ class Car:
                 raise ValueError("Width out of range")
         except ValueError as e:
             print(e)
-            self._width = 0
+            self._width = None
 
     @property
     def length(self):
@@ -149,7 +148,7 @@ class Car:
                 raise ValueError("Length out of range")
         except ValueError as e:
             print (e)
-            self._length = 0
+            self._length = None
 
     @property
     def maximum_speed(self):
@@ -164,7 +163,7 @@ class Car:
                 raise ValueError("Invalid maximum speed,setting back to default")
         except ValueError as e:
             print(e)
-            self._maximum_speed = 0.0
+            self._maximum_speed = None
 
     @property
     def mpg(self):
@@ -179,7 +178,7 @@ class Car:
                 raise ValueError("Invalid maximum speed,setting back to default")
         except ValueError as e:
             print(e)
-            self._mpg = 0.0
+            self._mpg = None
 
     @property
     def on_hire(self):
@@ -190,7 +189,7 @@ class Car:
         try:
             if isinstance(value, str):
                 value = value.lower()
-                if value == 'true':
+                if value == 'true' or value == 't':
                     self._on_hire = True
                 else:
                     self._on_hire = False
@@ -215,3 +214,12 @@ class Car:
                 raise ValueError("Invalid Car ID, setting back to default")
         except ValueError as e:
             print(e)
+
+    def is_valid(self, car_instance):
+        missing_attributes = [key for key, value in self.__dict__.items() if value is None]
+
+        if missing_attributes:
+            print("The following attributes have None values:", ", ".join(missing_attributes))
+            return False
+        else:
+            return True

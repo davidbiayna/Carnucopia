@@ -66,6 +66,7 @@ class UI:
 
     def process_options(self):
         while True:
+            self.display_menu()
             option = input("Enter your choice: ")
 
             if option == 'A':
