@@ -1,0 +1,50 @@
+Set cars Fail
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry 
+Testing started at 14:01 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_set_cars_data 
+
+============================== 1 failed in 0.26s ==============================
+FAILED           [100%]
+CarRegistryTest.py:5 (TestCarRegistry.test_set_cars_data)
+15 != 14
+
+Expected :14
+Actual   :15
+<Click to see difference>
+
+self = <CarRegistryTest.TestCarRegistry testMethod=test_set_cars_data>
+
+    def test_set_cars_data(self):
+        # Create a CarRegistry instance
+        car_registry = CarRegistry()
+    
+        # Set the file headers and position values
+        car_registry.set_file_headers_and_pos_values()
+    
+        # Load data from the CSV file
+        car_registry.initial_file_rows = []
+        with open("CarRegistry.dat", "r") as file:
+            for line in file:
+                car_registry.initial_file_rows.append(line.strip().split(','))
+    
+        # Set the cars data
+        car_registry.set_cars_data()
+    
+        # Perform assertions based on the data
+>       self.assertEqual(len(car_registry.cars), 15)
+
+CarRegistryTest.py:23: AssertionError
+
+Process finished with exit code 1
+
+
+----------------------------------------
+
+Set cars Success
+

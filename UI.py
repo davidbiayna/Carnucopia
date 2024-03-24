@@ -10,8 +10,7 @@ class UI:
     def __init__(self, car_registry):
         self.car_registry = car_registry
         self.exit_flag = False
-        # self.headers = self.display_header()
-        # self.rows = self.display_items()
+
     def sanitize_data(self):
         self.car_registry.set_file_headers_and_pos_values()
 
@@ -40,20 +39,6 @@ class UI:
         # Print the table using tabulate
         print(tabulate(data.values(), headers='keys', tablefmt="plain"))
 
-    # def set_cars_data_state(self):
-        # Transform each row in a dictionary such as a hash - key value pairs so we can further manipulate the data
-        # ex:
-        # {'car_1': {'Pos': '1', 'ID': '1', 'Reg': 'BD61 SLU', 'Manufacturer': 'HONDA', 'Model': 'CR-V', 'SIPP': 'SFDR',
-        #            'Seat': '5', 'Width': '1780', 'Length': '4510', 'Spd': '130', 'MPG': '39', 'OnHire': 'True'},
-        #  'car_2': {'Pos': '2', 'ID': '2', 'Reg': 'CA51 MBE', 'Manufacturer': 'CHEVROLET', 'Model': 'CORVETTE',
-        #            'SIPP': 'JTAV', 'Seat': '2', 'Width': '1877', 'Length': '1234', 'Spd': '194', 'MPG': '24',
-        #            'OnHire': 'True'}
-        # Set the cars data in CarRegistry
-        # self.car_registry.set_cars_data(self.headers, self.rows)
-        # self.car.update_cars_attributes()
-        # Print the table using the data values from the key value pairs and the established headers
-        # self.data = {f'car_{i}': dict(zip(headers, row)) for i, row in enumerate(rows, start=1)}
-        # print(tabulate(self.data.values(), headers="keys", tablefmt="plain"))
 
     def display_menu(self):
         print("Menu Options:")
@@ -67,7 +52,7 @@ class UI:
     def process_options(self):
         while True:
             self.display_menu()
-            option = input("Enter your choice: ")
+            option = input("Enter your choice: ").upper()
 
             if option == 'A':
                 self.car_registry.add_car()

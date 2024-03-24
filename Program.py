@@ -4,6 +4,7 @@ from UI import UI
 import pdb
 from tabulate import tabulate
 
+
 class Program:
     def main(self):
         car_registry = CarRegistry()
@@ -21,6 +22,7 @@ class Program:
             if ui.exit_flag or ui.confirm_exit():
                 print('See you soon')
                 break
+
 
 if __name__ == "__main__":
     program = Program()

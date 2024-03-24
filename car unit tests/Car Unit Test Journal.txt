@@ -1,0 +1,685 @@
+Proof of validations working: Sipp code and registration_plate don't follow the criteria.
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_init 
+Testing started at 15:32 ...
+Launching pytest with arguments CarTest.py::TestCar::test_init --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_init 
+
+============================== 1 failed in 0.19s ==============================
+FAILED                                    [100%]Invalid UK registration plate format
+Invalid SIPP Code ABCD, please check again
+Invalid UK registration plate format
+Invalid SIPP Code ABCD, please check again
+
+CarTest.py:8 (TestCar.test_init)
+'ABC XYZ' != None
+
+Expected :None
+Actual   :'ABC XYZ'
+<Click to see difference>
+
+self = <CarTest.TestCar testMethod=test_init>
+
+    def test_init(self):
+        #Arrange
+        pos_id = 1
+        car_id = 1
+        registration_plate = "ABC XYZ"
+        manufacturer = "HONDA"
+        model_type = "CIVIC"
+        sipp = "ABCD"
+        seat_capacity = 4
+        width = 1500
+        length = 4500
+        maximum_speed = 120
+        mpg = 30
+        on_hire = True
+    
+        #Act
+        car = Car(pos_id, car_id, registration_plate, manufacturer, model_type, sipp,
+        seat_capacity, width, length, maximum_speed, mpg, on_hire)
+    
+        #Assert
+        self.assertEqual(car.pos_id, pos_id)
+        self.assertEqual(car.car_id, car_id)
+>       self.assertEqual(car.registration_plate, registration_plate)
+
+CarTest.py:31: AssertionError
+
+Process finished with exit code 1
+
+
+
+------------------------------------------------
+
+With correct criteria:
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_init 
+Testing started at 16:02 ...
+Launching pytest with arguments CarTest.py::TestCar::test_init --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_init PASSED                                    [100%]
+
+============================== 1 passed in 0.04s ==============================
+
+Process finished with exit code 0
+
+
+
+-------------------------------------------------------------
+
+Failed EQ
+
+:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_eq_method 
+Testing started at 17:03 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_eq_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_eq_method 
+
+============================== 1 failed in 0.20s ==============================
+FAILED                         [100%]
+CarTest.py:41 (TestCar.test_valid_eq_method)
+self = <CarTest.TestCar testMethod=test_valid_eq_method>
+
+    def test_valid_eq_method(self):
+        # Arrange
+        first_car = Car(
+            pos_id=1,
+            car_id=1,
+            registration_plate="BD61 SLU",
+            manufacturer="HONDA",
+            model_type="CR-V",
+            sipp="SFDR",
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+        # Act
+        # assertion
+        self.assertTrue(first_car == first_car)
+    
+        second_car = Car(
+            pos_id=2,
+            car_id=2,
+            registration_plate="CA51 MBE",
+            manufacturer="CHEVROLET",
+            model_type="CORVETTE",
+            sipp="JTAV",
+            seat_capacity=2,
+            width=1877,
+            length=1234,
+            maximum_speed=194.0,
+            mpg=24.0,
+            on_hire=True
+        )
+    
+        self.assertFalse(first_car == second_car)
+>       self.assertTrue(first_car == second_car)
+E       AssertionError: False is not true
+
+CarTest.py:78: AssertionError
+
+Process finished with exit code 1
+
+
+-----------------------------------
+
+EQ method passed
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_eq_method 
+Testing started at 17:14 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_eq_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_eq_method PASSED                         [100%]
+
+============================== 1 passed in 0.04s ==============================
+
+Process finished with exit code 0
+
+
+-------------------------------------------------------------------
+
+
+CarID method incorrect
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_car_id 
+Testing started at 16:22 ...
+Launching pytest with arguments CarTest.py::TestCar::test_car_id --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_car_id 
+
+============================== 1 failed in 0.18s ==============================
+FAILED                                  [100%]
+CarTest.py:78 (TestCar.test_car_id)
+self = <CarTest.TestCar testMethod=test_car_id>
+
+    def test_car_id(self):
+>       car = Car()
+E       TypeError: Car.__init__() missing 12 required positional arguments: 'pos_id', 'car_id', 'registration_plate', 'manufacturer', 'model_type', 'sipp', 'seat_capacity', 'width', 'length', 'maximum_speed', 'mpg', and 'on_hire'
+
+CarTest.py:80: TypeError
+
+Process finished with exit code 1
+
+
+---------------------------------------------------------------
+
+CarID method Correct
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_car_id 
+Testing started at 10:35 ...
+Launching pytest with arguments CarTest.py::TestCar::test_car_id --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_car_id 
+
+============================== 1 passed in 0.06s ==============================
+PASSED                                  [100%]
+Process finished with exit code 0
+
+
+------------------------------------
+
+Correct registration plate
+
+    def test_valid_registration_plate_method(self):
+        # Arrange
+        expected_registration_plate = "BD61 SLU"
+        # Act
+        car = Car(
+            pos_id=1,
+            car_id=1,
+            registration_plate="BD61 SLU",
+            manufacturer="HONDA",
+            model_type="CR-V",
+            sipp="SFDR",
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+            )
+            #Assert
+        self.assertEqual(car.registration_plate, expected_registration_plate)
+		
+
+---------------------------------------------
+
+Incorrect Registration Plate
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_registration_plate_method 
+Testing started at 13:35 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_registration_plate_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_registration_plate_method 
+
+============================== 1 passed in 0.07s ==============================
+PASSED       [100%]
+Process finished with exit code 0
+
+
+
+--------------------------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_registration_plate_method 
+Testing started at 13:46 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_registration_plate_method --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_registration_plate_method PASSED       [100%]
+
+============================== 1 passed in 0.08s ==============================
+
+Process finished with exit code 0
+
+---------------------------------------------------------
+
+Valid Manufacturer
+
+    def test_valid_manufacturer_method(self):
+        # Arrange
+        expected_manufacturer = "HONDA"
+        # Act
+        car = Car(
+            pos_id=1,
+            car_id=1,
+            registration_plate="BD61 SLU",
+            manufacturer=expected_manufacturer,
+            model_type="CR-V",
+            sipp="SFDR",
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+        # Assert
+        self.assertEqual(car.manufacturer, expected_manufacturer)
+
+------------------------------------------------------------------------------
+
+Invalid Manufacturer
+
+    def test_invalid_manufacturer_method(self):
+        # Arrange
+        expected_manufacturer = "HONDA"
+        incorrect_manufacturer = "TOYOTA"
+        # Act
+        car = Car(
+            pos_id=1,
+            car_id=1,
+            registration_plate="BD61 SLU",
+            manufacturer=incorrect_manufacturer,
+            model_type="CR-V",
+            sipp="SFDR",
+            seat_capacity=5,
+            width=1780,
+            length=4510,
+            maximum_speed=130.0,
+            mpg=39.0,
+            on_hire=True
+        )
+        # Assert
+        self.assertNotEqual(car.manufacturer, expected_manufacturer)
+
+------------------------------------------------------------------------------
+
+Valid Model Type:
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_model_type 
+Testing started at 15:33 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_model_type --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_model_type 
+
+============================== 1 passed in 0.12s ==============================
+PASSED                        [100%]
+Process finished with exit code 0
+
+
+
+-----------------------------
+
+Invalid Model Type:
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_model_type 
+Testing started at 15:43 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_model_type --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_model_type 
+
+============================== 1 passed in 0.07s ==============================
+PASSED                      [100%]Invalid manufacturer,setting back to default
+
+Process finished with exit code 0
+
+
+------------------------
+
+
+Valid SIPP
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_sipp 
+Testing started at 15:43 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_sipp --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_sipp 
+
+============================== 1 passed in 0.12s ==============================
+PASSED                              [100%]
+Process finished with exit code 0
+
+
+
+------------------------------
+
+Invalid SIPP
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_sipp 
+Testing started at 15:44 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_sipp --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_sipp 
+
+============================== 1 passed in 0.06s ==============================
+PASSED                            [100%]Invalid SIPP Code ABCD, please check again
+
+Process finished with exit code 0
+
+
+-----------------------------
+
+Car Capacity Success
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_seat_capacity 
+Testing started at 16:22 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_seat_capacity --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_seat_capacity 
+
+============================== 1 passed in 0.08s ==============================
+PASSED                     [100%]
+Process finished with exit code 0
+
+
+---------------------------
+
+Car Capacity FAILED
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_seat_capacity 
+Testing started at 16:29 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_seat_capacity --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_seat_capacity 
+
+============================== 1 passed in 0.07s ==============================
+PASSED                   [100%]Seat capacity out of range (1-10), setting back to default
+
+Process finished with exit code 0
+
+
+---------------------------------
+
+Width success
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_width 
+Testing started at 16:33 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_width --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_width 
+
+============================== 1 passed in 0.09s ==============================
+PASSED                             [100%]
+Process finished with exit code 0
+
+------------------------------------
+
+Width out of range
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_width 
+Testing started at 16:40 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_width --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_width 
+
+============================== 1 passed in 0.09s ==============================
+PASSED                           [100%]Width out of range
+
+Process finished with exit code 0
+
+
+----------------------------------------
+
+
+Valid Length
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_length 
+Testing started at 16:44 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_length --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_length 
+
+============================== 1 passed in 0.10s ==============================
+PASSED                            [100%]
+Process finished with exit code 0
+
+
+------------------------
+
+
+Invalid length
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_length 
+Testing started at 16:46 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_length --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_length 
+
+============================== 1 passed in 0.08s ==============================
+PASSED                          [100%]Length out of range
+
+Process finished with exit code 0
+
+
+
+----------------
+
+Max speed success
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_maximum_speed 
+Testing started at 16:53 ...
+Launching pytest with arguments CarTest.py::TestCar::test_maximum_speed --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_maximum_speed 
+
+============================== 1 passed in 0.07s ==============================
+PASSED                           [100%]
+Process finished with exit code 0
+
+
+------------------
+
+Invalid max speed
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_maximum_speed 
+Testing started at 16:54 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_maximum_speed --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_maximum_speed 
+
+============================== 1 passed in 0.06s ==============================
+PASSED                   [100%]Invalid maximum speed,setting back to default
+
+Process finished with exit code 0
+
+
+
+----------------------------
+
+Valid MPG
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_mpg 
+Testing started at 18:43 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_mpg --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_mpg 
+
+----------------------------
+
+Invalid MPG
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_mpg 
+Testing started at 19:03 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_mpg --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_mpg 
+
+============================== 1 passed in 0.05s ==============================
+PASSED                             [100%]Invalid mpg,setting back to default
+
+Process finished with exit code 0
+
+
+-----------------------
+
+Valid On_hire
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_on_hire 
+Testing started at 19:24 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_on_hire --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_on_hire 
+
+============================== 1 passed in 0.05s ==============================
+PASSED                           [100%]
+Process finished with exit code 0
+
+
+------------------
+
+Invalid on_hire
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_on_hire 
+Testing started at 19:25 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_on_hire --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_on_hire 
+
+============================== 1 passed in 0.07s ==============================
+PASSED                         [100%]Invalid on_hire value, setting back to default
+
+Process finished with exit code 0
+
+
+---------------------------
+Largest car ID valid
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_valid_largest_car_id 
+Testing started at 19:46 ...
+Launching pytest with arguments CarTest.py::TestCar::test_valid_largest_car_id --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_valid_largest_car_id 
+
+============================== 1 passed in 0.06s ==============================
+PASSED                    [100%]
+Process finished with exit code 0
+
+
+
+--------------------------
+
+Invalid largest car ID
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_invalid_largest_car_id 
+Testing started at 19:54 ...
+Launching pytest with arguments CarTest.py::TestCar::test_invalid_largest_car_id --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_invalid_largest_car_id 
+
+============================== 1 passed in 0.07s ==============================
+PASSED                  [100%]Invalid Car ID, setting back to default
+
+Process finished with exit code 0
+
+
+
+
+-----------------------------
+
+
+Attributes Missing
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_is_valid_with_missing_attributes 
+Testing started at 19:55 ...
+Launching pytest with arguments CarTest.py::TestCar::test_is_valid_with_missing_attributes --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_is_valid_with_missing_attributes 
+
+============================== 1 passed in 0.13s ==============================
+PASSED        [100%]Seat capacity out of range (1-10), setting back to default
+The following attributes have None values: _seat_capacity
+
+Process finished with exit code 0
+
+
+-------------------------------
+
+
+All Attributes
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar.test_is_valid_with_all_attributes 
+Testing started at 19:58 ...
+Launching pytest with arguments CarTest.py::TestCar::test_is_valid_with_all_attributes --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarTest.py::TestCar::test_is_valid_with_all_attributes 
+
+============================== 1 passed in 0.06s ==============================
+PASSED            [100%]
+Process finished with exit code 0

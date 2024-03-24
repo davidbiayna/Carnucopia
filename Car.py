@@ -1,6 +1,8 @@
 import re
 import pdb
+
 from tabulate import tabulate
+
 
 class Car:
     minimum_width = 1000
@@ -14,7 +16,21 @@ class Car:
                      "FORD",
                      "HONDA",
                      "ISUZU",
-                     "TOYOTA"]
+                     "TOYOTA",
+                     "AUDI",
+                     "BMW",
+                     "MERCEDES",
+                     "VOLKSWAGEN",
+                     "SUBARU",
+                     "NISSAN",
+                     "MAZDA",
+                     "LEXUS",
+                     "JEEP",
+                     "HYUNDAI",
+                     "KIA",
+                     "PEUGEOT"
+                     "FIAT"
+                     "VOLVO"]
 
     def __init__(self, pos_id, car_id, registration_plate, manufacturer, model_type, sipp,
                  seat_capacity, width, length, maximum_speed, mpg, on_hire):
@@ -34,10 +50,6 @@ class Car:
 
     def __eq__(self, other):
         return isinstance(other, Car) and self.registration_plate == other.registration_plate
-
-    def __str__(self):
-        return f"{self.registration_plate} {self.manufacturer} {self.model_type} {self.sipp} " \
-               f"{self.seat_capacity} {self.width} {self.length} {self.maximum_speed} {self.mpg} {self.on_hire}"
 
     @property
     def car_id(self):
@@ -147,7 +159,7 @@ class Car:
             else:
                 raise ValueError("Length out of range")
         except ValueError as e:
-            print (e)
+            print(e)
             self._length = None
 
     @property
@@ -175,7 +187,7 @@ class Car:
             if isinstance(value, float) and value >= 0:
                 self._mpg = float(value)
             else:
-                raise ValueError("Invalid maximum speed,setting back to default")
+                raise ValueError("Invalid mpg,setting back to default")
         except ValueError as e:
             print(e)
             self._mpg = None
@@ -219,7 +231,6 @@ class Car:
         missing_attributes = [key for key, value in self.__dict__.items() if value is None]
 
         if missing_attributes:
-            print("The following attributes have None values:", ", ".join(missing_attributes))
             return False
         else:
             return True
