@@ -46,7 +46,6 @@ class Car:
         self.maximum_speed = float(maximum_speed)
         self.mpg = float(mpg)
         self.on_hire = on_hire
-        # self._largest_car_id = max(self.car_id)
 
     def __eq__(self, other):
         return isinstance(other, Car) and self.registration_plate == other.registration_plate
@@ -212,20 +211,6 @@ class Car:
         except ValueError as e:
             print(e)
             self._on_hire = False
-
-    @property
-    def largest_car_id(self):
-        return Car._largest_car_id
-
-    @largest_car_id.setter
-    def largest_car_id(self, value):
-        try:
-            if value > Car._largest_car_id:
-                Car._largest_car_id = value
-            else:
-                raise ValueError("Invalid Car ID, setting back to default")
-        except ValueError as e:
-            print(e)
 
     def is_valid(self, car_instance):
         missing_attributes = [key for key, value in self.__dict__.items() if value is None]

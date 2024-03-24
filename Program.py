@@ -8,7 +8,6 @@ from tabulate import tabulate
 class Program:
     def main(self):
         car_registry = CarRegistry()
-
         ui = UI(car_registry)
 
         while not ui.exit_flag:

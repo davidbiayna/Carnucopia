@@ -4,7 +4,6 @@ from Car import Car
 import csv
 from tabulate import tabulate
 
-
 class CarRegistry:
 
     def __init__(self):
@@ -84,16 +83,9 @@ class CarRegistry:
                 car_attrs[reversed_headers[header_key]] = attr_value
             self._prettyfied_cars[car_id] = car_attrs
 
-    def get_cars(self):
-        return self._cars
-
     @property
     def cars(self):
         return self._cars
-
-    @property
-    def number_of_cars(self):
-        return len(self._cars)
 
     def display_car_registry_state(self):
         print("Current state of CarRegistry:")
@@ -116,7 +108,7 @@ class CarRegistry:
         new_car_id = max(int(car.car_id) for car in self._cars.values()) + 1 if self._cars else 1
 
         while True:
-            # Retrieve the user input for the new car
+            # Retrieve the user input for tthe new car
             registration_plate = input("Enter Registration Plate: ")
             if registration_plate.upper() == 'Q':
                 print("Returning to main menu...")

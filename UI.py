@@ -14,25 +14,6 @@ class UI:
     def sanitize_data(self):
         self.car_registry.set_file_headers_and_pos_values()
 
-    def display_header(self):
-        with open("C:\\Temp\\CarRegistry.dat", "r") as file:
-            csv_reader = csv.reader(file)
-            headers = next(csv_reader, None)
-            return headers
-
-    def display_items(self):
-        cars = []
-        try:
-            with open("C:\\Temp\\CarRegistry.dat", "r") as file:
-                csv_reader = csv.reader(file)
-                # Skip headers
-                next(csv_reader, None)
-                for row in csv_reader:
-                    cars.append(row)
-        except FileNotFoundError:
-            print("No existing registry file found.")
-        return cars
-
     def display_pretty_table(self):
         # Print the table using the data values from the key value pairs and the established headers
         data = self.car_registry._prettyfied_cars
@@ -78,19 +59,3 @@ class UI:
             response = input('Are you sure you want to leave, Y or N').upper()
 
         return response == 'Y'
-
-    def hire_out_car(self):
-        pos = self.gather_position_number()
-        result = self.car_registry.hire_out_car(pos)
-        print(result)
-
-    def return_car_to_garage(self):
-        pos = self.gather_position_number()
-        result = self.car_registry.return_car_to_garage()
-        print(result)
-
-    def update_registry(self):
-        self.car_registry.update_registry()
-
-    def my_car_registry(self):
-        return self.car_registry
