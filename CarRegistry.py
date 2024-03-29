@@ -1,8 +1,8 @@
 import pdb
-
 from Car import Car
 import csv
 from tabulate import tabulate
+
 
 class CarRegistry:
 
@@ -28,7 +28,7 @@ class CarRegistry:
                     self._initial_file_rows = existing_data[1:]
                 else:
                     self._initial_file_rows = existing_data
-            # Check if headers already exist  so we do not duplicate the headers rows
+            # Check if headers already exist so we do not duplicate the headers rows
             if existing_data[0] == list(self._car_attrs.keys()):
                 return
 
@@ -108,7 +108,7 @@ class CarRegistry:
         new_car_id = max(int(car.car_id) for car in self._cars.values()) + 1 if self._cars else 1
 
         while True:
-            # Retrieve the user input for tthe new car
+            # Retrieve the user input for the new car
             registration_plate = input("Enter Registration Plate: ")
             if registration_plate.upper() == 'Q':
                 print("Returning to main menu...")

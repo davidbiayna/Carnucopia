@@ -1,0 +1,72 @@
+Init Success
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target UITest.py::MyTestCase.test_init 
+Testing started at 19:13 ...
+Launching pytest with arguments UITest.py::MyTestCase::test_init --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+UITest.py::MyTestCase::test_init PASSED                                  [100%]
+
+============================== 1 passed in 0.03s ==============================
+
+Process finished with exit code 0
+
+
+-----------------------------------------
+
+Output Success
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target UITest.py::MyTestCase.test_display_menu 
+Testing started at 19:31 ...
+Launching pytest with arguments UITest.py::MyTestCase::test_display_menu --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+UITest.py::MyTestCase::test_display_menu PASSED                          [100%]Menu Options:
+A - Add Car:
+D - Delete Car:
+H - Hire Out Car:
+R - Return Car to Garage:
+U - Update Car Registry:
+X - Exit:
+
+
+============================== 1 passed in 0.04s ==============================
+
+Process finished with exit code 0
+
+--------------------------------------------------
+
+Full Tests
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target UITest.py::TestUI 
+Testing started at 16:05 ...
+Launching pytest with arguments UITest.py::TestUI --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 2 items
+
+UITest.py::TestUI::test_display_table_with_headers_pos_values_and_data PASSED [ 50%]  Pos    ID  Reg       Manufacturer    Model     SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  BD61 SLU  HONDA           CR-V      SFDR         5     1780      4510  130     39    True
+    2     2  CA51 MBE  CHEVROLET       CORVETTE  JTAV         2     1877      1234  194     24    True
+    3     3  PC14 RSN  FORD            F-150     PQBD         5     2121      5890  155     20    True
+    4     4  MB19 ORE  HONDA           ACCORD    FDAR         5     1849      4933  125     47.3  False
+    5     5  BD68 NAP  HONDA           ACCORD    FDAV         5     1849      4933  171     37.7  False
+    6     6  LY51 BED  ISUZU           NQR       OKAD         3     2065      5220  114     11.9  True
+    7     7  LJ08 NOD  HONDA           CIVIC     SDAR         5     1877      4648  125     31    True
+    8     9  GK63 SLE  FORD            ESCAPE    SDMR         5     1806      4457  209     23    True
+    9    10  GW66 EPY  FORD            TAURUS    FCAR         5     1935      5154  143     20    False
+   10    11  YE02 FOU  TOYOTA          CELICA    IDAR         5     1778      2700  140     30    False
+   11    12  YN65 RTY  CHRYSLER        CHEROKEE  PFBD         5     1900      4730  125.5   36    True
+   12    13  WP64 WIN  CHEVROLET       SPARK     ECMR         5     1495      3495   89     33    False
+   13    14  RG69 KSD  CHEVROLET       CORVETTE  JTAV         2     1877      1234  194     24    True
+   14    15  HR11 OZE  FORD            F-150     PPBD         5     2121      5890  155     20    False
+
+UITest.py::TestUI::test_init PASSED                                      [100%]
+
+============================== 2 passed in 0.05s ==============================
+
+Process finished with exit code 0

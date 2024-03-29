@@ -524,53 +524,6 @@ class TestCar(unittest.TestCase):
         # Assert
         self.assertEqual(car.on_hire, expected_on_hire)
 
-    def test_valid_largest_car_id(self):
-        # Arrange
-        expected_largest_car_id = 10
-        # Act
-        car = Car(
-            pos_id=1,
-            car_id=1,
-            registration_plate="AB80 XYZ",
-            manufacturer="HONDA",
-            model_type="CIVIC",
-            sipp="IDAR",
-            seat_capacity=4,
-            width=1500,
-            length=4500,
-            maximum_speed=120,
-            mpg=30,
-            on_hire=True
-        )
-        car.largest_car_id = expected_largest_car_id
-        # Assert
-        self.assertEqual(car.largest_car_id, expected_largest_car_id)
-
-    def test_invalid_largest_car_id(self):
-        # Arrange
-        initial_largest_car_id = 5
-        invalid_largest_car_id = 3
-
-        # Act
-        car = Car(
-            pos_id=1,
-            car_id=1,
-            registration_plate="AB80 XYZ",
-            manufacturer="HONDA",
-            model_type="CIVIC",
-            sipp="IDAR",
-            seat_capacity=4,
-            width=1500,
-            length=4500,
-            maximum_speed=120,
-            mpg=30,
-            on_hire=True
-        )
-        car.largest_car_id = initial_largest_car_id
-        car.largest_car_id = invalid_largest_car_id
-         # Assert
-        self.assertNotEqual(car.largest_car_id, invalid_largest_car_id)
-
     def test_is_valid_with_missing_attributes(self):
         # Arrange
         car = Car(

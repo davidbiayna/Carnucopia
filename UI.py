@@ -20,7 +20,6 @@ class UI:
         # Print the table using tabulate
         print(tabulate(data.values(), headers='keys', tablefmt="plain"))
 
-
     def display_menu(self):
         print("Menu Options:")
         print("A - Add Car:")
@@ -34,7 +33,6 @@ class UI:
         while True:
             self.display_menu()
             option = input("Enter your choice: ").upper()
-
             if option == 'A':
                 self.car_registry.add_car()
             elif option == 'D':

@@ -683,3 +683,54 @@ CarTest.py::TestCar::test_is_valid_with_all_attributes
 ============================== 1 passed in 0.06s ==============================
 PASSED            [100%]
 Process finished with exit code 0
+
+---------------------------
+
+Full Tests
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarTest.py::TestCar 
+Testing started at 16:04 ...
+Launching pytest with arguments CarTest.py::TestCar --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 25 items
+
+CarTest.py::TestCar::test_car_id PASSED                                  [  4%]
+CarTest.py::TestCar::test_init PASSED                                    [  8%]
+CarTest.py::TestCar::test_invalid_length PASSED                          [ 12%]Length out of range
+
+CarTest.py::TestCar::test_invalid_manufacturer_method PASSED             [ 16%]
+CarTest.py::TestCar::test_invalid_maximum_speed PASSED                   [ 20%]Invalid maximum speed,setting back to default
+
+CarTest.py::TestCar::test_invalid_model_type PASSED                      [ 24%]Invalid manufacturer,setting back to default
+
+CarTest.py::TestCar::test_invalid_mpg PASSED                             [ 28%]Invalid mpg,setting back to default
+
+CarTest.py::TestCar::test_invalid_on_hire PASSED                         [ 32%]Invalid on_hire value, setting back to default
+
+CarTest.py::TestCar::test_invalid_registration_plate_method PASSED       [ 36%]
+CarTest.py::TestCar::test_invalid_seat_capacity PASSED                   [ 40%]Seat capacity out of range (1-10), setting back to default
+
+CarTest.py::TestCar::test_invalid_sipp PASSED                            [ 44%]Invalid SIPP Code ABCD, please check again
+
+CarTest.py::TestCar::test_invalid_width PASSED                           [ 48%]Width out of range
+
+CarTest.py::TestCar::test_is_valid_with_all_attributes PASSED            [ 52%]
+CarTest.py::TestCar::test_is_valid_with_missing_attributes PASSED        [ 56%]Seat capacity out of range (1-10), setting back to default
+
+CarTest.py::TestCar::test_maximum_speed PASSED                           [ 60%]
+CarTest.py::TestCar::test_valid_eq_method PASSED                         [ 64%]
+CarTest.py::TestCar::test_valid_length PASSED                            [ 68%]
+CarTest.py::TestCar::test_valid_manufacturer_method PASSED               [ 72%]
+CarTest.py::TestCar::test_valid_model_type PASSED                        [ 76%]
+CarTest.py::TestCar::test_valid_mpg PASSED                               [ 80%]
+CarTest.py::TestCar::test_valid_on_hire PASSED                           [ 84%]
+CarTest.py::TestCar::test_valid_registration_plate_method PASSED         [ 88%]
+CarTest.py::TestCar::test_valid_seat_capacity PASSED                     [ 92%]
+CarTest.py::TestCar::test_valid_sipp PASSED                              [ 96%]
+CarTest.py::TestCar::test_valid_width PASSED                             [100%]
+
+============================= 25 passed in 0.08s ==============================
+
+Process finished with exit code 0
+

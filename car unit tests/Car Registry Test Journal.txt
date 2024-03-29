@@ -1,50 +1,361 @@
-Set cars Fail
+test_init FAILED
 
-C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry 
-Testing started at 14:01 ...
-Launching pytest with arguments CarRegistryTest.py::TestCarRegistry --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_init 
+Testing started at 11:55 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_init --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
 
 ============================= test session starts =============================
 collecting ... collected 1 item
 
-CarRegistryTest.py::TestCarRegistry::test_set_cars_data 
+CarRegistryTest.py::TestCarRegistry::test_init 
 
-============================== 1 failed in 0.26s ==============================
-FAILED           [100%]
-CarRegistryTest.py:5 (TestCarRegistry.test_set_cars_data)
-15 != 14
+============================== 1 failed in 0.42s ==============================
+FAILED                    [100%]
+CarRegistryTest.py:5 (TestCarRegistry.test_init)
+self = <CarRegistryTest.TestCarRegistry testMethod=test_init>
 
-Expected :14
-Actual   :15
-<Click to see difference>
-
-self = <CarRegistryTest.TestCarRegistry testMethod=test_set_cars_data>
-
-    def test_set_cars_data(self):
-        # Create a CarRegistry instance
-        car_registry = CarRegistry()
+    def test_init(self):
+        #Arrange
+        registry = CarRegistry() #CarRegistry instance
     
-        # Set the file headers and position values
-        car_registry.set_file_headers_and_pos_values()
+        #Act -  No action required
     
-        # Load data from the CSV file
-        car_registry.initial_file_rows = []
-        with open("CarRegistry.dat", "r") as file:
-            for line in file:
-                car_registry.initial_file_rows.append(line.strip().split(','))
-    
-        # Set the cars data
-        car_registry.set_cars_data()
-    
-        # Perform assertions based on the data
->       self.assertEqual(len(car_registry.cars), 15)
+        #Assert
+        #Checking if attributes initialize correctly
+        self.assertEqual(registry._cars, {}) # Checking if it's an empty dictionary
+>       self.assertIs(registry._car, Car)
+E       NameError: name 'Car' is not defined
 
-CarRegistryTest.py:23: AssertionError
+CarRegistryTest.py:15: NameError
 
 Process finished with exit code 1
+
+-----------------------------
+
+test_init Success
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_init 
+Testing started at 11:59 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_init --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_init 
+
+============================== 1 passed in 0.08s ==============================
+PASSED                    [100%]
+Process finished with exit code 0
 
 
 ----------------------------------------
 
-Set cars Success
+Test Add car failed
 
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_add_car 
+Testing started at 10:51 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_add_car --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_add_car 
+
+============================== 1 failed in 0.36s ==============================
+FAILED                 [100%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+
+CarRegistryTest.py:31 (TestCarRegistry.test_add_car)
+'F' != False
+
+Expected :False
+Actual   :'F'
+<Click to see difference>
+
+self = <CarRegistryTest.TestCarRegistry testMethod=test_add_car>
+
+    def test_add_car(self):
+        # Simulate user inputs
+        user_input = ['DB80 DBN', 'AUDI', 'R8', 'JTAV', '2', '1500', '2000', '300', '130', 'F']
+    
+        # Mock the built-in 'input' function to return values from user_input list
+        with unittest.mock.patch('builtins.input', side_effect=user_input):
+            # Call add_car method
+            self.instance.add_car()
+    
+        # Check if the car was added to the _cars dictionary
+        self.assertIn('car_1', self.instance._cars)
+        self.assertEqual(self.instance._cars['car_1'].registration_plate, 'DB80 DBN')
+        self.assertEqual(self.instance._cars['car_1'].manufacturer, 'AUDI')
+        self.assertEqual(self.instance._cars['car_1'].model_type, 'R8')
+        self.assertEqual(self.instance._cars['car_1'].sipp, 'JTAV')
+        self.assertEqual(self.instance._cars['car_1'].seat_capacity, 2)
+        self.assertEqual(self.instance._cars['car_1'].width, 1500)
+        self.assertEqual(self.instance._cars['car_1'].length, 2000)
+        self.assertEqual(self.instance._cars['car_1'].maximum_speed, 300)
+        self.assertEqual(self.instance._cars['car_1'].mpg, 130)
+>       self.assertEqual(self.instance._cars['car_1'].on_hire, 'F')
+
+CarRegistryTest.py:52: AssertionError
+
+Process finished with exit code 1
+
+
+----------------------------------
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_add_car 
+Testing started at 11:03 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_add_car --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_add_car 
+
+============================== 1 passed in 0.15s ==============================
+PASSED                 [100%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+
+Process finished with exit code 0
+
+
+--------------------------------------
+
+Remove Car Fail
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_remove_car 
+Testing started at 13:09 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_remove_car --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_remove_car 
+
+============================== 1 failed in 0.30s ==============================
+FAILED              [100%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+Car found: ('AUDI', 'DB80 DBN')
+Car DB80 DBN removed from the registry
+Current state of CarRegistry:
+
+
+CarRegistryTest.py:53 (TestCarRegistry.test_remove_car)
+self = <CarRegistryTest.TestCarRegistry testMethod=test_remove_car>
+
+    def test_remove_car(self):
+        # Simulate user inputs to add a car
+        user_input_add = ['DB80 DBN', 'AUDI', 'R8', 'JTAV', '2', '1500', '2000', '300', '130', 'F']
+        with unittest.mock.patch('builtins.input', side_effect=user_input_add):
+            self.instance.add_car()
+    
+        # Check if the car was added to the _cars dictionary
+        self.assertIn('car_1', self.instance._cars)
+    
+        # Simulate user inputs to remove the added car
+        user_input_remove = ['1', 'Y']
+        with unittest.mock.patch('builtins.input', side_effect=user_input_remove):
+>           self.instance.remove_car()
+
+CarRegistryTest.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+CarRegistry.py:220: in remove_car
+    self.remove_car_by_position(pos)
+CarRegistry.py:243: in remove_car_by_position
+    self.update_state_of_cars_table_and_file()
+CarRegistry.py:288: in update_state_of_cars_table_and_file
+    self.save_registry_to_file()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CarRegistry.CarRegistry object at 0x000001B7EF1E1610>
+
+    def save_registry_to_file(self):
+        filename = "C:\\Temp\\CarRegistry.dat"
+        current_cars_state = self._prettyfied_cars
+>       headers = list(current_cars_state[next(iter(current_cars_state))].keys())
+E       StopIteration
+
+CarRegistry.py:99: StopIteration
+
+Process finished with exit code 1
+
+
+
+
+
+--------------------------------------
+
+Return to garage - Already in Garage
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_return_car_to_garage 
+Testing started at 13:19 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_return_car_to_garage --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_return_car_to_garage 
+
+============================== 1 passed in 0.12s ==============================
+PASSED    [100%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+Car found: ('AUDI', 'DB80 DBN')
+Sorry, the car registered as DB80 DBN is already in the garage!
+
+Process finished with exit code 0
+
+
+--------------------------------------
+
+Return to garage - Success
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_return_car_to_garage_success 
+Testing started at 13:29 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_return_car_to_garage_success --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_return_car_to_garage_success 
+
+============================== 1 passed in 0.13s ==============================
+PASSED [100%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  True
+Car object created successfully!
+Car found: ('AUDI', 'DB80 DBN')
+Car returned successfully.
+Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+
+Process finished with exit code 0
+
+
+------------------------------------
+
+Hire out cancel
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_hire_out_cancel 
+Testing started at 13:42 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_hire_out_cancel --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_hire_out_cancel 
+
+============================== 1 passed in 0.14s ==============================
+PASSED         [100%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+Car found: AUDI, DB80 DBN
+Hire out canceled.
+
+--------------------------------------
+
+
+Hire out confirmation
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry.test_hire_out_confirm 
+Testing started at 13:57 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry::test_hire_out_confirm --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 1 item
+
+CarRegistryTest.py::TestCarRegistry::test_hire_out_confirm 
+
+============================== 1 passed in 0.12s ==============================
+PASSED        [100%]
+Process finished with exit code 0
+------------------------------------------
+
+
+
+---------------------
+
+
+Full Tests
+
+C:\Users\BiaynanealD\AppData\Local\Microsoft\WindowsApps\python3.11.exe "C:/Program Files/JetBrains/PyCharm Community Edition 2023.3.3/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target CarRegistryTest.py::TestCarRegistry 
+Testing started at 16:06 ...
+Launching pytest with arguments CarRegistryTest.py::TestCarRegistry --no-header --no-summary -q in C:\Users\BiaynanealD\OneDrive - MHR\Documents\Cyber Docs\Apprenticeship\1. Secure Development\Assessment\git_hub_carnucopia_repo\Carnucopia
+
+============================= test session starts =============================
+collecting ... collected 7 items
+
+CarRegistryTest.py::TestCarRegistry::test_add_car 
+CarRegistryTest.py::TestCarRegistry::test_already_returned_car_to_garage 
+CarRegistryTest.py::TestCarRegistry::test_hire_out_cancel 
+CarRegistryTest.py::TestCarRegistry::test_hire_out_confirm 
+CarRegistryTest.py::TestCarRegistry::test_init 
+CarRegistryTest.py::TestCarRegistry::test_remove_car 
+CarRegistryTest.py::TestCarRegistry::test_return_car_to_garage_success 
+
+============================== 7 passed in 0.16s ==============================
+PASSED                 [ 14%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+    2     2  DB80 CMF  BMW             T1       JTAV         2     1700      2300    350    130  True
+Car object created successfully!
+PASSED [ 28%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+Car found: ('AUDI', 'DB80 DBN')
+Sorry, the car registered as DB80 DBN is already in the garage!
+PASSED         [ 42%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+Car found: AUDI, DB80 DBN
+Hire out canceled.
+PASSED        [ 57%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+Car found: AUDI, DB80 DBN
+Car registered as DB80 DBN is now out on hire.
+Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  True
+PASSED                    [ 71%]PASSED              [ 85%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+Car object created successfully!
+Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+    2     2  DB80 CMF  BMW             T1       JTAV         2     1700      2300    350    130  True
+Car object created successfully!
+Car found: ('AUDI', 'DB80 DBN')
+Car DB80 DBN removed from the registry
+Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    2     2  DB80 CMF  BMW             T1       JTAV         2     1700      2300    350    130  True
+Car deleted successfully.
+PASSED [100%]Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  True
+Car object created successfully!
+Car found: ('AUDI', 'DB80 DBN')
+Car returned successfully.
+Current state of CarRegistry:
+  Pos    ID  Reg       Manufacturer    Model    SIPP      Seat    Width    Length    Spd    MPG  OnHire
+    1     1  DB80 DBN  AUDI            R8       JTAV         2     1500      2000    300    130  False
+
+Process finished with exit code 0
